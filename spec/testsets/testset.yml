@@ -1,0 +1,5 @@
+- target: <div>メッセージ</div>
+  extracted: メッセージ
+
+- target: var a = "メッセージ"
+  extracted: メッセージ
