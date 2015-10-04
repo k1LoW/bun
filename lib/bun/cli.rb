@@ -3,6 +3,7 @@ require 'bun/extractor'
 
 module Bun
   class CLI < Thor
+    default_command :extract
     desc 'extract', 'Extract'
     def extract
       STDIN.each do |line|
