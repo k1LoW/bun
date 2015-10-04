@@ -16,7 +16,7 @@
 - target: var a = "メッセージを送信しました"
   extracted: メッセージを送信しました
 
-- target: Configure::write('flashMessage', __('メッセージを送信しました'));
+- target: Configure::write('Messsage.flashMessage', __('メッセージを送信しました'));
   extracted: メッセージを送信しました
 
 - target: <div>10,000ポイント取得しました</div>

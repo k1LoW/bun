@@ -16,7 +16,11 @@ module Bun
         next if n.is_eos?
         parsed = LTSV.parse(n.feature)
         ja_start = true if parsed[0][:word].is_part_of_bun?
-        break if ja_start && !parsed[0][:word].is_part_of_bun?
+        if ja_start && !parsed[0][:word].is_part_of_bun?
+          break unless extracted.join.ascii_only?
+          ja_start = false
+          extracted = []
+        end
         extracted.push(parsed[0][:word]) if parsed[0][:word].is_part_of_bun?
       end
       return nil if extracted.count == 0
