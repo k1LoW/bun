@@ -5,14 +5,9 @@ module Bun
   class CLI < Thor
     desc 'extract', 'Extract'
     def extract
-      stdin = stdin_read
-      puts Bun::Exctractor.extract_line(stdin)
-    end
-
-    private
-
-    def stdin_read
-      $stdin.read
+      STDIN.each do |line|
+        puts Bun::Exctractor.extract_line(line)
+      end
     end
   end
 end
