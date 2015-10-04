@@ -11,7 +11,7 @@ end
 
 describe Bun::Exctractor do
   YAML.load_file(TESTSETS).each do |e|
-    it 'extract_line input:' + e['target'] do
+    it 'extract_line( ' + e['target'] + ' )'do
       expect(Bun::Exctractor.extract_line(e['target'])).to eql(e['extracted'])
     end
   end
