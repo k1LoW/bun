@@ -19,6 +19,7 @@ module Bun
         break if ja_start && !parsed[0][:word].is_part_of_bun?
         extracted.push(parsed[0][:word]) if parsed[0][:word].is_part_of_bun?
       end
+      return nil if extracted.count == 0
       extracted.join
     end
   end
