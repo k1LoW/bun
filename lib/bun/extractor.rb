@@ -15,9 +15,9 @@ module Bun
       nm.parse(line) do |n|
         next if n.is_eos?
         parsed = LTSV.parse(n.feature)
-        ja_start = true unless parsed[0][:word].is_part_of_bun?
-        break if ja_start && parsed[0][:word].is_part_of_bun?
-        extracted.push(parsed[0][:word]) unless parsed[0][:word].is_part_of_bun?
+        ja_start = true if parsed[0][:word].is_part_of_bun?
+        break if ja_start && !parsed[0][:word].is_part_of_bun?
+        extracted.push(parsed[0][:word]) if parsed[0][:word].is_part_of_bun?
       end
       extracted.join
     end
