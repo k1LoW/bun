@@ -4,9 +4,10 @@ rvm:
   - 2.1.7
 
 before_install:
-    - gem update bundler
     - sudo apt-get update -qq
     - uname -a
+    - gem update bundler
+    - bundle install
 
 install:
   # mecab
