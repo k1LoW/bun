@@ -1,6 +1,6 @@
-# coding: utf-8
 require 'natto'
 require 'ltsv'
+require 'pp'
 
 module Bun
   class Exctractor
@@ -14,10 +14,11 @@ module Bun
       }
       nm = Natto::MeCab.new(fmt)
       nm.parse(line) do |n|
+        next if n.is_eos?
         parsed = LTSV.parse(n.feature)
-        ja_start = true unless parsed[0][:type] == '1'
-        break if ja_start && parsed[0][:type] == '1'
-        extracted.push(parsed[0][:word]) unless parsed[0][:type] == '1'
+        ja_start = true unless parsed[0][:word].ascii_only?
+        break if ja_start && parsed[0][:word].ascii_only?
+        extracted.push(parsed[0][:word]) unless parsed[0][:word].ascii_only?
       end
       extracted.join
     end

@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'yaml'
+require 'pp'
 
 TESTSETS = File.dirname(__FILE__) + "/testsets/testset.yml";
 
