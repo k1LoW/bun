@@ -1,7 +1,6 @@
 # coding: utf-8
 require 'natto'
 require 'ltsv'
-require 'pp'
 
 module Bun
   class Exctractor
