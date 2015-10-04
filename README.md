@@ -7,7 +7,7 @@ Lazy Japanese paragraph extractor.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'bun'
+gem 'bun', github: "k1LoW/bun"
 ```
 
 And then execute:
@@ -16,7 +16,8 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bun
+    $ gem install specific_install
+    $ gem specific_install https://github.com/k1LoW/bun.git 
 
 ## Usage
 
