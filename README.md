@@ -23,6 +23,10 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Requirement
+
+- - [MeCab >= _0.996_](http://taku910.github.io/mecab/)
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/bun/fork )
