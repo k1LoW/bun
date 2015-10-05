@@ -25,7 +25,7 @@ TODO: Write usage instructions here
 
 ## Requirement
 
-- - [MeCab >= _0.996_](http://taku910.github.io/mecab/)
+- [MeCab >= _0.996_](http://taku910.github.io/mecab/)
 
 ## Contributing
 
