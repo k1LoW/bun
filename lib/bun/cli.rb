@@ -7,8 +7,10 @@ module Bun
     desc 'extract', 'Extract'
     def extract
       STDIN.each do |line|
-        extracted = Bun::Exctractor.extract_line(line)
-        puts extracted unless extracted.nil?
+        paragraphs = Bun::Exctractor.extract_line(line)
+        paragraphs.each do |p|
+          puts p
+        end unless paragraphs.count == 0
       end
     end
   end
