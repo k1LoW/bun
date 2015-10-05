@@ -6,7 +6,13 @@ module Bun
     def self.extract_line(line)
       extracted = []
       ja_start = false
-      self.natto
+      fmt = {
+        node_format: 'word:%M\ttype:%s\n',
+        unk_format: 'word:%M\ttype:%s\n',
+        eos_format: 'EOS\n',
+        userdic: File.dirname(__FILE__) + '/userdic/symbol.dic'
+      }
+      @nm = Natto::MeCab.new(fmt) unless @nm
       @nm.parse(line) do |n|
         next if n.is_eos?
         parsed = LTSV.parse(n.feature)
@@ -20,16 +26,6 @@ module Bun
       end
       return nil if extracted.count == 0
       extracted.join unless extracted.join.ascii_only?
-    end
-
-    def self.natto
-      fmt = {
-        node_format: 'word:%M\ttype:%s\n',
-        unk_format: 'word:%M\ttype:%s\n',
-        eos_format: 'EOS\n',
-        userdic: File.dirname(__FILE__) + '/userdic/symbol.dic'
-      }
-      @nm = Natto::MeCab.new(fmt) unless @nm
     end
   end
 end
