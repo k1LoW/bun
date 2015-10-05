@@ -15,6 +15,9 @@
 
 - target: <div>メッセージを, 送信しました.</div>
   extracted: メッセージを, 送信しました.
+
+- target: <div>メッセージを, 送信しました...</div>
+  extracted: メッセージを, 送信しました...
   
 - target: var a = "メッセージを送信しました"
   extracted: メッセージを送信しました

@@ -27,7 +27,7 @@ TODO: Write usage instructions here
 
 - [MeCab >= _0.996_](http://taku910.github.io/mecab/)
 
-## Memo
+## Development Memo
 
 ### Add userdic
 
