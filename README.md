@@ -27,6 +27,15 @@ TODO: Write usage instructions here
 
 - [MeCab >= _0.996_](http://taku910.github.io/mecab/)
 
+## Memo
+
+### Add userdic
+
+```
+cd bun/lib/bun/userdic
+/usr/local/Cellar/mecab/0.996/libexec/mecab/mecab-dict-index -d /usr/local/Cellar/mecab/0.996/lib/mecab/dic/ipadic -u symbol.dic -f utf-8 -t utf-8 symbol.csv
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/bun/fork )

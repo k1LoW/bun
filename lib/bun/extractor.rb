@@ -9,7 +9,8 @@ module Bun
       fmt = {
         node_format: 'word:%M\ttype:%s\n',
         unk_format: 'word:%M\ttype:%s\n',
-        eos_format: 'EOS\n'
+        eos_format: 'EOS\n',
+        userdic: File.dirname(__FILE__) + '/userdic/symbol.dic'
       }
       nm = Natto::MeCab.new(fmt)
       nm.parse(line) do |n|
