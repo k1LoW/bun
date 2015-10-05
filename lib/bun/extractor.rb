@@ -24,7 +24,7 @@ module Bun
         extracted.push(parsed[0][:word]) if parsed[0][:word].is_part_of_bun?
       end
       return nil if extracted.count == 0
-      extracted.join
+      extracted.join unless extracted.join.ascii_only?
     end
   end
 end

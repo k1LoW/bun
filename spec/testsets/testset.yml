@@ -12,6 +12,9 @@
 
 - target: <div>メッセージを, 送信しました。</div>
   extracted: メッセージを, 送信しました。
+
+- target: <div>メッセージを, 送信しました.</div>
+  extracted: メッセージを, 送信しました.
   
 - target: var a = "メッセージを送信しました"
   extracted: メッセージを送信しました
@@ -19,5 +22,11 @@
 - target: Configure::write('Messsage.flashMessage', __('メッセージを送信しました'));
   extracted: メッセージを送信しました
 
+- target: Configure::write('Messsage.flashMessage', __('メッセージを, 送信しました'));
+  extracted: メッセージを, 送信しました
+  
 - target: <div>10,000ポイント取得しました</div>
   extracted: 10,000ポイント取得しました
+
+- target: <div>10,000</div>
+  extracted: 
