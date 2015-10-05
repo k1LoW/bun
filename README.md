@@ -1,6 +1,6 @@
 # [PoC] Bun [![Build Status](https://travis-ci.org/k1LoW/bun.svg?branch=master)](https://travis-ci.org/k1LoW/bun)
 
-Lazy Japanese paragraph extractor.
+Lazy Japanese text extractor.
 
 ## Installation
 

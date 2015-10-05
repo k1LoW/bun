@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['k1LoW']
   spec.email         = ['k1lowxb@gmail.com']
 
-  spec.summary       = 'Lazy Japanese paragraph extractor'
-  spec.description   = 'Extract one japanese paragraph from one line'
+  spec.summary       = 'Lazy Japanese text extractor'
+  spec.description   = 'Extract one japanese text from one line source code'
   spec.homepage      = 'https://github.com/k1LoW/bun'
   spec.license       = 'MIT'
 
