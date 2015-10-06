@@ -5,6 +5,7 @@ require 'ltsv'
 module Bun
   class Exctractor
     def self.extract_line(line)
+      line.strip!
       line.gsub!(/>/, '> ') # @dirty
       fmt = {
         node_format: 'word:%M\ttype:%s\n',
