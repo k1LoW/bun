@@ -56,3 +56,7 @@
 
 - target: <div>Get Message</div>
   extracted: []
+
+- target: <span class="notice">※注意事項</span>
+  extracted:
+    - ※注意事項

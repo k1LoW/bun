@@ -4,6 +4,7 @@ require 'ltsv'
 module Bun
   class Exctractor
     def self.extract_line(line)
+      line.gsub!(/>/, '> ') # @dirty
       fmt = {
         node_format: 'word:%M\ttype:%s\n',
         unk_format: 'word:%M\ttype:%s\n',
@@ -20,7 +21,7 @@ module Bun
         ja_start = true if parsed[0][:word].is_part_of_bun?
         if ja_start && !parsed[0][:word].is_part_of_bun?
           unless extracted.join.ascii_only?
-            paragraphs << extracted.join unless extracted.join == ''
+            paragraphs << extracted.join.strip unless extracted.join == ''
           end
           ja_start = false
           extracted = []
@@ -28,7 +29,7 @@ module Bun
         end
         extracted << parsed[0][:word] if parsed[0][:word].is_part_of_bun?
       end
-      paragraphs << extracted.join unless extracted.join == '' || extracted.join.ascii_only?
+      paragraphs << extracted.join.strip unless extracted.join == '' || extracted.join.ascii_only?
       paragraphs
     end
   end
