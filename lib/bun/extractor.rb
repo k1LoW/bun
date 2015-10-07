@@ -6,7 +6,7 @@ module Bun
   class Exctractor
     def self.extract_line(line)
       line.strip!
-      line.gsub!(/>/, '> ') # @dirty
+      line.gsub!(/([>"'])/, '\1 ') # @dirty
       fmt = {
         node_format: 'word:%M\ttype:%s\n',
         unk_format: 'word:%M\ttype:%s\n',
