@@ -61,6 +61,10 @@
   extracted:
     - ※注意事項
 
+- target: <span class="notice">「※注意事項」</span>
+  extracted:
+    - 「※注意事項」
+    
 - target: var a = "※注意事項"
   extracted:
     - ※注意事項
