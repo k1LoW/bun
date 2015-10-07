@@ -21,7 +21,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use like grep(?)
+
+    $ bun index.html
+    $ bun -n index.html
+
+    $ find . -type f -name '*.erb' | bun -n
+
+    $ curl https://fusic.github.io | bun -n
 
 ## Requirement
 
