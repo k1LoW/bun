@@ -24,6 +24,7 @@ Or install it yourself as:
 Use like grep(?)
 
     $ bun index.html
+
     $ bun -n index.html
 
     $ find . -type f -name '*.erb' | bun -n
