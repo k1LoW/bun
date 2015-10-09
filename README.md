@@ -1,4 +1,6 @@
-# [PoC] Bun [![Build Status](https://travis-ci.org/k1LoW/bun.svg?branch=master)](https://travis-ci.org/k1LoW/bun)
+# [PoC] bun [![Build Status](https://travis-ci.org/k1LoW/bun.svg?branch=master)](https://travis-ci.org/k1LoW/bun)
+
+bun = 文
 
 Lazy Japanese text extractor.
 
