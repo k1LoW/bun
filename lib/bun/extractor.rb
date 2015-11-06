@@ -8,28 +8,33 @@ module Bun
       line.strip!
       line.gsub!(/([>"'])/, '\1 ') # @dirty
       fmt = {
-        node_format: 'word:%M\ttype:%s\n',
-        unk_format: 'word:%M\ttype:%s\n',
+        node_format: 'word:%M\ttype:%s\tfeature:%H\n',
+        unk_format: 'word:%M\ttype:%s\tfeature:%H\n',
         eos_format: 'EOS\n',
         userdic: File.dirname(__FILE__) + '/userdic/symbol.dic'
       }
       @nm = Natto::MeCab.new(fmt) unless @nm
       paragraphs = []
       extracted = []
-      ja_start = false
+      bun_start = false
+      last_feature = nil
       @nm.parse(line) do |n|
         break if n.is_eos?
         parsed = LTSV.parse(n.feature)
-        ja_start = true if parsed[0][:word].is_part_of_bun?
-        if ja_start && !parsed[0][:word].is_part_of_bun?
-          unless extracted.join.ascii_only?
-            paragraphs.concat(self.separate_paragraphs(extracted.join.strip)) unless extracted.join == ''
+        word = parsed[0][:word]
+        feature = parsed[0][:feature].split(',').first
+        bun_start = true if word.is_part_of_bun?
+        if bun_start && !word.is_part_of_bun?
+          if !extracted.join.ascii_only? && extracted.join != ''
+            paragraphs.concat(self.separate_paragraphs(extracted.join.strip))
           end
-          ja_start = false
+          bun_start = false
           extracted = []
+          last_feature = feature
           next
         end
-        extracted << parsed[0][:word] if parsed[0][:word].is_part_of_bun?
+        extracted << word if word.is_part_of_bun?
+        last_feature = feature
       end
       unless extracted.join == '' || extracted.join.ascii_only?
         paragraphs.concat(self.separate_paragraphs(extracted.join.strip))
